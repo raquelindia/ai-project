@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="./home-files/css/template-styles.css">
+</head>
+
+<body>
+    <div class="container">
+
+        <div>
+            <div id="speech-bubble" style="box-shadow: 5px 5px 10px rgba(182, 182, 182, 0.5); border-radius: 8px;"><p >{{ aiResponse }}</p></div>
+            <form>
+               <div class="input-button-div"><div><input name="input" ng-model="Data.input" type="text" style="width: 400px"></div> <div style="margin-top: 8%;"><button style="border: none; height: 30px; width:50px; background-color: white; border-radius: 4px; color: rgb(240, 126, 126);  box-shadow: 5px 5px 10px rgba(166, 166, 166, 0.6);" ng-click="sendMessage()"><span style="" class="material-symbols-outlined">arrow_forward</span></button></div></div>
+            </form>
+            
+            </div>
+    </div>
+</body>
+</html>
+

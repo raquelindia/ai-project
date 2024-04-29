@@ -1,9 +1,29 @@
 .container {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh; /* Ensure the container takes up the full height of the viewport */
+margin-top: 10%;
 }
 
+
+
+input {
+    height: 10vh;
+    width: 100%;
+}
+
+
 .input-button-div {
-    margin-top: auto; /* Push the input to the bottom */
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    transform: translateY(-116%);
+    bottom:0;
+    left:0;
+   width: 100%;
+}
+
+.input-div {
+    width: 100%;
+}
+
+.button-div {
+  
 }

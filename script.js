@@ -4,6 +4,10 @@ app.controller('appCtrl', function($scope, $http, $cookies){
     $scope.aiResponse = "How can I help you today?";
     $scope.inputValue = '';
     $scope.userMessageVar = '';
+    $scope.conversationThread = [
+
+    ];
+
     var headers = {};
     $scope.Data = {};
     const apiKeyUrl = '/api/data';
@@ -41,8 +45,8 @@ $scope.headers = headers;
     var data = {
         "model": "gpt-3.5-turbo",
         messages: [
-            {role: 'system', content: `your name is hannah.`},
-            {role: 'assistant', content: `Hey there, Pookie! What's on your mind today? Let's get chatty and see what fun we can stir up together.`},
+            {role: 'system', content: `You are a helpful assistant that speaks in a business tone.`},
+            {role: 'assistant', content: `How may I assist you today?`},
             { role: 'user', content: $scope.inputValue }
         ]
     
@@ -53,7 +57,7 @@ $scope.headers = headers;
         var id = $scope.Data.input;
         console.log(id);
         $scope.inputValue = id;
-        
+        $scope.conversationThread.push({role: 'User', message: id});
      
 
  
@@ -68,13 +72,22 @@ $scope.headers = headers;
         console.log($scope.chatGptData);
         var arr1 = $scope.chatGptData.choices[0].message.content;
         $scope.aiResponse = arr1;
+        $scope.conversationThread.push({role: 'Assistant', message: $scope.aiResponse});
+        console.log($scope.conversationThread);
     })
     .catch(function(error) {
         console.log(error);
     });
+    
 };
 
+$scope.toDoButton = function () {
+   
+} 
+
 });
+
+
 
 app.config(function($routeProvider) {
     $routeProvider
@@ -82,4 +95,16 @@ app.config(function($routeProvider) {
         templateUrl : "home.html",
         controller: 'appCtrl'
     })
+});
+
+app.directive('conversationThread', function(){
+    return {
+        restrict: 'E',
+        templateUrl: 'home-files/components/thread.html',
+        scope: {
+            role: '@',
+            message: '@'
+        },
+    controller: 'appCtrl'
+    };
 });

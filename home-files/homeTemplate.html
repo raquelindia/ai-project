@@ -5,14 +5,22 @@
 </head>
 
 <body>
-    <div class="container">
-
+    <div class="container flex justify-center">
         <div>
-            <div id="speech-bubble" style="box-shadow: 5px 5px 10px rgba(182, 182, 182, 0.5); border-radius: 8px;"><p >{{ aiResponse }}</p></div>
-            <form>
-               <div class="input-button-div"><div><input name="input" ng-model="Data.input" type="text" style="width: 400px"></div> <div style="margin-top: 8%;"><button style="border: none; height: 30px; width:50px; background-color: white; border-radius: 4px; color: rgb(240, 126, 126);  box-shadow: 5px 5px 10px rgba(166, 166, 166, 0.6);" ng-click="sendMessage()"><span style="" class="material-symbols-outlined">arrow_forward</span></button></div></div>
-            </form>
+        <div>
+            <div><p class="text-2xl flex justify-center">{{ aiResponse }}</p></div>
+            <div id="conversation-component" ng-repeat="(index, message) in conversationThread" class="mb-6 mt-4" >
+                <conversation-thread class="flex flex-row justify-center" message="{{ message.message }}" role="{{ message.role }}" index="{{$index}}"></conversation-thread>
+            </div>
             
+            <div>
+                <form>
+                    <div class="input-button-div"><div class="input-div"><input name="input" ng-model="Data.input" type="text"></div> <div class="button-div"><button class="pl-4 pr-8 pb-2 pt-2 bg-gray-200 h-full" ng-click="sendMessage()"><span class="material-symbols-outlined">arrow_forward</span></button></div></div>
+                 </form>
+            </div>
+          
+            
+            </div>
             </div>
     </div>
 </body>

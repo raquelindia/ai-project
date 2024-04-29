@@ -4,17 +4,27 @@
         <meta charset="UTF-8">
         <meta name="viewport" content=""width=device-width, initial-scale="1.0">
         <title>AI Assistant</title>
-        <link rel="stylesheet" href="index-styles.css">
+        <link rel="stylesheet" href="./css/index-styles.css">
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-cookies.min.js"></script>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
         <script src="script.js"></script>
     </head>
-    <body   style="background-color: whitesmoke">
-        <div ng-app="aiApp" ng-controller="appCtrl">
+    <body style="background-color: whitesmoke;">
+        <div class="body-wrapper">
+
+   
+        <div  ng-app="aiApp" ng-controller="appCtrl">
+   
+                <div  class="nav-div" ng-include="'./nav-bar.html'"></div>
+            
             <!-- <div id="background-file" ng-include="'./background-file.html'"></div> -->
             <div ng-view></div>
+        </div>
         </div>
     </body>
 <script>

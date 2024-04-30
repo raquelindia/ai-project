@@ -8,14 +8,15 @@
     <div class="container flex justify-center">
         <div>
         <div>
-            <div><p class="text-2xl flex justify-center">{{ aiResponse }}</p></div>
-            <div id="conversation-component" ng-repeat="(index, message) in conversationThread" class="mb-6 mt-4" >
+            <div ng-if="conversationThread.length < 1"><p class="text-2xl flex justify-center">{{ aiResponse }}</p></div>
+            <div id="conversation-component" ng-repeat="(index, message) in conversationThread" class="mb-22 mt-4 ml-12" >
                 <conversation-thread class="flex flex-row justify-center" message="{{ message.message }}" role="{{ message.role }}" index="{{$index}}"></conversation-thread>
             </div>
+            <div style="height: 200px; width: 100%; background-color: none"></div>
             
-            <div>
-                <form>
-                    <div class="input-button-div"><div class="input-div"><input name="input" ng-model="Data.input" type="text"></div> <div class="button-div"><button class="pl-4 pr-8 pb-2 pt-2 bg-gray-200 h-full" ng-click="sendMessage()"><span class="material-symbols-outlined">arrow_forward</span></button></div></div>
+            <div class="mt-6">
+                <form ng-submit="sendMessage()">
+                    <div class="input-button-div"><div class="input-div"><input name="input" ng-model="Data.input" type="text" required></div> <div class="button-div"><button class="pl-4 pr-8 pb-2 pt-2 bg-gray-200 h-full" type="submit"><span class="material-symbols-outlined" style="font-size: 30px;">arrow_forward</span></button></div></div>
                  </form>
             </div>
           

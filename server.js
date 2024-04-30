@@ -1,12 +1,16 @@
 require('dotenv').config(); 
 
 const express = require('express');
+const axios = require('axios');
 const path = require('path');
 const bodyParser = require('body-parser');
 
 const app = express();
-const PORT = process.env.PORT || 8000;
+const PORT = process.env.PORT || 9000;
 
+var cors = require('cors');
+
+app.use(cors());
 // Middleware
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname)));
@@ -18,7 +22,9 @@ app.get('/api/data', (req, res) => {
   const data = {
     message: 'Hello from the server!',
     timestamp: Date.now(),
-    apiKey: process.env.OPENAI_API_KEY
+    apiKey: process.env.OPENAI_API_KEY,
+    serpApiKey: process.env.SERP_API_KEY,
+    instructions: process.env.INSTRUCTIONS
   };
   res.json(data);
 });

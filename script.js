@@ -2,6 +2,9 @@ var app = angular.module('aiApp', ["ngRoute", "ngCookies"]);
 const googleLensUrl = 'https://serpapi.com/search';
 
 app.controller('appCtrl', function($scope, $http, $cookies){
+    $scope.backgroundColor = '';
+    $scope.accentsColor = '#cccccc';
+    $scope.display = '';
     var userMessage = "Heyyyy";
     $scope.aiResponse = "How can I assist you today?";
     $scope.inputValue = '';

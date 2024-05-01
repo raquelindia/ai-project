@@ -6,42 +6,52 @@
 </head>
 
 <body>
-<div>
+<div class="flex flex-col mb-24">
     <div>
     <div><h1 class="text-3xl flex justify-center mt-8">Settings</h1></div>
     </div>
-    <div class="sections w-3/4">
-    <div>
-        <div><h2><b>Accents</b></h2></div>
+    <div class="flex justify-center">
+    <div class="sections w-3/4 flex flex-col gap-6">
+    <div class="flex flex-col">
+        <div class="mb-2"><h2><b>Accents</b></h2></div>
         <div class="border rounded border-gray-200 bg-white">
-        <div><p>Hot Pink</p></div>
-        <div><p>Cyan</p></div>
-        <div><p>Neon Yellow</p></div>
-        <div><p>Orange</p></div>
-        <div><p>Baby Pink</p></div>
-        <div><p>Baby Blue</p></div>
-        <div><p>Pastel Yellow</p></div>
-        <div><p>Orange Cream</p></div>
+            <div class="ml-4 mt-4 mb-4">
+        <div class="flex gap-2"><div style="height: 16px; width: 16px; background-color: #cccccc; border-radius: 50%; margin-top: 0.5%;"></div><p>Default</p></div>
+        <div class="flex gap-2"><div style="height: 16px; width: 16px; background-color: hotpink; border-radius: 50%; margin-top: 0.5%;"></div><p>Hot Pink</p></div>
+        <div class="flex gap-2"><div style="height: 16px; width: 16px; background-color: cyan; border-radius: 50%; margin-top: 0.5%;"></div><p>Cyan</p></div>
+        <div class="flex gap-2"><div style="height: 16px; width: 16px; background-color: yellow; border-radius: 50%; margin-top: 0.5%;"></div><p>Neon Yellow</p></div>
+        <div class="flex gap-2"><div style="height: 16px; width: 16px; background-color: orange; border-radius: 50%; margin-top: 0.5%;"></div><p>Orange</p></div>
+        <div class="flex gap-2"><div style="height: 16px; width: 16px; background-color: rgb(246, 164, 205); border-radius: 50%; margin-top: 0.5%;"></div><p>Baby Pink</p></div>
+        <div class="flex gap-2"><div style="height: 16px; width: 16px; background-color: rgb(161, 201, 243); border-radius: 50%; margin-top: 0.5%;"></div><p>Baby Blue</p></div>
+        <div class="flex gap-2"><div style="height: 16px; width: 16px; background-color: rgb(255, 255, 170); border-radius: 50%; margin-top: 0.5%;"></div><p>Pastel Yellow</p></div>
+        <div class="flex gap-2"><div style="height: 16px; width: 16px; background-color: rgb(255, 215, 142); border-radius: 50%; margin-top: 0.5%;"></div><p>Orange Cream</p></div>
+        </div>
+    </div>
+    </div>
+
+    <div>
+        <div class="mb-2"><h2><b>Backgrounds</b></h2></div>
+        <div class="border rounded border-gray-200 bg-white">
+       <div class="ml-4 mt-4 mb-4">
+        <div class="flex gap-2"><div style="height: 16px; width: 16px; background-color: hotpink; border-radius: 50%; margin-top: 0.5%;"></div><p>Default</p></div>
+            <div class="flex gap-2"><div style="height: 16px; width: 16px; background-color: rgb(246, 164, 205); border-radius: 50%; margin-top: 0.5%;"></div><p>Baby Pink</p></div>
+            <div class="flex gap-2"><div style="height: 16px; width: 16px; background-color: rgb(161, 201, 243); border-radius: 50%; margin-top: 0.5%;"></div><p>Baby Blue</p></div>
+            <div class="flex gap-2"><div style="height: 16px; width: 16px; background-color: rgb(255, 255, 170); border-radius: 50%; margin-top: 0.5%;"></div><p>Pastel Yellow</p></div>
+            <div class="flex gap-2"><div style="height: 16px; width: 16px; background-color: rgb(255, 215, 142); border-radius: 50%; margin-top: 0.5%;"></div><p>Orange Cream</p></div>
+        </div>
         </div>
     </div>
 
     <div>
-        <div><h2><b>Backgrounds</b></h2></div>
+        <div class="mb-2"><h3><b>Display</b></h3></div>
         <div class="border rounded border-gray-200 bg-white">
-        <div><p>Baby Pink</p></div>
-        <div><p>Baby Blue</p></div>
-        <div><p>Pastel Yellow</p></div>
-        <div><p>Orange Cream</p></div>
-        </div>
-    </div>
-
-    <div>
-        <div><h3><b>Display</b></h3></div>
-        <div class="border rounded border-gray-200 bg-white">
-        <div class="flex"><div><div><span class="material-symbols-outlined"></span></div><div><button>Day</button></div></div> <div><div><span class="material-symbols-outlined"></span></div><div><button>Night</button></div></div></div>
-        </div>
+            <div class="ml-4 mt-4 mb-4">
+        <div class="flex"><div><div><span class="material-symbols-outlined">light_mode</span></div><div><button>Day</button></div></div> <div><div><span class="material-symbols-outlined">dark_mode</span></div><div><button>Night</button></div></div></div>
+    </div>    
     </div>
     </div>
+    </div>
+</div>
 </div>
 </body>
 

@@ -113,6 +113,8 @@ window.location.reload();
 
 $scope.toggleAccents = function (color) {
 $scope.accentsColor = color;
+$scope.saveAppState();
+window.location.reload();
 };
 
 $scope.toggleDisplay = function (display) {
@@ -145,7 +147,8 @@ $http.get(googleLensUrl, {
     //saving state with cookies
     $scope.saveAppState = function () {
         $cookies.putObject('appState', {
-            backgroundColor: $scope.backgroundColor
+            backgroundColor: $scope.backgroundColor,
+            accentsColor: $scope.accentsColor
         });
     };
 
@@ -153,11 +156,13 @@ $http.get(googleLensUrl, {
         var savedState = $cookies.getObject('appState');
         if (savedState) {
             $scope.backgroundColor = savedState.backgroundColor;
+            $scope.accentsColor = savedState.accentsColor;
         };
     };
 
     $scope.$watchGroup([
-        'backgroundColor'
+        'backgroundColor',
+        'accentsColor'
     ], function(newValues, oldValues) {
         if (newValues[0] !== oldValues[0] || newValues[1] !== oldValues[1]) {
             $scope.saveAppState();

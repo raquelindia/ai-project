@@ -2,7 +2,7 @@ var app = angular.module('aiApp', ["ngRoute", "ngCookies"]);
 const googleLensUrl = 'https://serpapi.com/search';
 
 app.controller('appCtrl', function($scope, $http, $cookies){
-    $scope.backgroundColor = '';
+    $scope.backgroundColor = 'whitesmoke';
     $scope.accentsColor = '#cccccc';
     $scope.display = '';
     var userMessage = "Heyyyy";
@@ -104,9 +104,20 @@ $scope.headers = headers;
     
 };
 
-// $scope.toDoButton = function () {
-   
-// } 
+$scope.toggleBackgroundColor = function (color) {
+$scope.backgroundColor = color;
+console.log($scope.backgroundColor);
+$scope.saveAppState();
+window.location.reload();
+};
+
+$scope.toggleAccents = function (color) {
+$scope.accentsColor = color;
+};
+
+$scope.toggleDisplay = function (display) {
+$scope.display = display;
+};
 
 
 //google lens api
@@ -131,6 +142,31 @@ $http.get(googleLensUrl, {
 
 
 
+    //saving state with cookies
+    $scope.saveAppState = function () {
+        $cookies.putObject('appState', {
+            backgroundColor: $scope.backgroundColor
+        });
+    };
+
+    $scope.loadAppState = function () {
+        var savedState = $cookies.getObject('appState');
+        if (savedState) {
+            $scope.backgroundColor = savedState.backgroundColor;
+        };
+    };
+
+    $scope.$watchGroup([
+        'backgroundColor'
+    ], function(newValues, oldValues) {
+        if (newValues[0] !== oldValues[0] || newValues[1] !== oldValues[1]) {
+            $scope.saveAppState();
+        }
+    });
+
+ //call loadAppState whenever controller initializes
+$scope.loadAppState();
+console.log($scope.backgroundColor);
 });
 
 

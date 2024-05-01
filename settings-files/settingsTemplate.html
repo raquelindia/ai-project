@@ -6,53 +6,175 @@
 </head>
 
 <body>
-<div class="flex flex-col mb-24">
-    <div>
-    <div><h1 class="text-3xl flex justify-center mt-8">Settings</h1></div>
-    </div>
-    <div class="flex justify-center">
-    <div class="sections w-3/4 flex flex-col gap-6">
-    <div class="flex flex-col">
-        <div class="mb-2"><h2><b>Accents</b></h2></div>
-        <div class="border rounded border-gray-200 bg-white">
-            <div class="ml-4 mt-4 mb-4">
-        <div class="flex gap-2"><div style="height: 16px; width: 16px; background-color: #cccccc; border-radius: 50%; margin-top: 0.5%;"></div><p>Default</p></div>
-        <div class="flex gap-2"><div style="height: 16px; width: 16px; background-color: hotpink; border-radius: 50%; margin-top: 0.5%;"></div><p>Hot Pink</p></div>
-        <div class="flex gap-2"><div style="height: 16px; width: 16px; background-color: cyan; border-radius: 50%; margin-top: 0.5%;"></div><p>Cyan</p></div>
-        <div class="flex gap-2"><div style="height: 16px; width: 16px; background-color: yellow; border-radius: 50%; margin-top: 0.5%;"></div><p>Neon Yellow</p></div>
-        <div class="flex gap-2"><div style="height: 16px; width: 16px; background-color: orange; border-radius: 50%; margin-top: 0.5%;"></div><p>Orange</p></div>
-        <div class="flex gap-2"><div style="height: 16px; width: 16px; background-color: rgb(246, 164, 205); border-radius: 50%; margin-top: 0.5%;"></div><p>Baby Pink</p></div>
-        <div class="flex gap-2"><div style="height: 16px; width: 16px; background-color: rgb(161, 201, 243); border-radius: 50%; margin-top: 0.5%;"></div><p>Baby Blue</p></div>
-        <div class="flex gap-2"><div style="height: 16px; width: 16px; background-color: rgb(255, 255, 170); border-radius: 50%; margin-top: 0.5%;"></div><p>Pastel Yellow</p></div>
-        <div class="flex gap-2"><div style="height: 16px; width: 16px; background-color: rgb(255, 215, 142); border-radius: 50%; margin-top: 0.5%;"></div><p>Orange Cream</p></div>
+    <div class="flex flex-col mb-24">
+        <div>
+            <div>
+                <h1 class="text-3xl flex justify-center mt-8">Settings</h1>
+            </div>
         </div>
-    </div>
-    </div>
+        <div class="flex justify-center">
+            <div class="sections w-3/4 flex flex-col gap-6">
+                <div class="flex flex-col">
+                    <div class="mb-2">
+                        <h2><b>Accents</b></h2>
+                    </div>
+                    <div class="border rounded border-gray-200 bg-white">
+                        <div class="ml-4 mt-4 mb-4 flex flex-col">
+                            <button ng-click="toggleAccents('#cccccc')">
+                                <div class="flex gap-2">
+                                    <div
+                                        style="height: 16px; width: 16px; background-color: #cccccc; border-radius: 50%; margin-top: 0.5%;">
+                                    </div>
+                                    <p>Default</p>
+                                </div>
+                            </button>
+                            <button ng-click="toggleAccents('hotpink')">
+                                <div class="flex gap-2">
+                                    <div
+                                        style="height: 16px; width: 16px; background-color: hotpink; border-radius: 50%; margin-top: 0.5%;">
+                                    </div>
+                                    <p>Hot Pink</p>
+                                </div>
+                            </button>
+                            <button ng-click="toggleAccents('cyan')">
+                                <div class="flex gap-2">
+                                    <div
+                                        style="height: 16px; width: 16px; background-color: cyan; border-radius: 50%; margin-top: 0.5%;">
+                                    </div>
+                                    <p>Cyan</p>
+                                </div>
+                            </button>
+                            <button ng-click="toggleAccents('yellow')">
+                                <div class="flex gap-2">
+                                    <div
+                                        style="height: 16px; width: 16px; background-color: yellow; border-radius: 50%; margin-top: 0.5%;">
+                                    </div>
+                                    <p>Neon Yellow</p>
+                                </div>
+                            </button>
+                            <button ng-click="toggleAccents('orange')">
+                                <div class="flex gap-2">
+                                    <div
+                                        style="height: 16px; width: 16px; background-color: orange; border-radius: 50%; margin-top: 0.5%;">
+                                    </div>
+                                    <p>Orange</p>
+                                </div>
+                            </button>
+                            <button ng-click="toggleAccents('rgb(246, 164, 205)')">
+                                <div class="flex gap-2">
+                                    <div
+                                        style="height: 16px; width: 16px; background-color: rgb(246, 164, 205); border-radius: 50%; margin-top: 0.5%;">
+                                    </div>
+                                    <p>Baby Pink</p>
+                                </div>
+                            </button>
+                            <button ng-click="toggleAccents('rgb(161, 201, 243)')">
+                                <div class="flex gap-2">
+                                    <div
+                                        style="height: 16px; width: 16px; background-color: rgb(161, 201, 243); border-radius: 50%; margin-top: 0.5%;">
+                                    </div>
+                                    <p>Baby Blue</p>
+                                </div>
+                            </button>
+                            <button ng-click="toggleAccents('rgb(255, 255, 170)')">
+                                <div class="flex gap-2">
+                                    <div
+                                        style="height: 16px; width: 16px; background-color: rgb(255, 255, 170); border-radius: 50%; margin-top: 0.5%;">
+                                    </div>
+                                    <p>Pastel Yellow</p>
+                                </div>
+                            </button>
+                            <button ng-click="toggleAccents('rgb(255, 215, 142)')">
+                                <div class="flex gap-2">
+                                    <div
+                                        style="height: 16px; width: 16px; background-color: rgb(255, 215, 142); border-radius: 50%; margin-top: 0.5%;">
+                                    </div>
+                                    <p>Orange Cream</p>
+                                </div>
+                            </button>
 
-    <div>
-        <div class="mb-2"><h2><b>Backgrounds</b></h2></div>
-        <div class="border rounded border-gray-200 bg-white">
-       <div class="ml-4 mt-4 mb-4">
-        <div class="flex gap-2"><div style="height: 16px; width: 16px; background-color: hotpink; border-radius: 50%; margin-top: 0.5%;"></div><p>Default</p></div>
-            <div class="flex gap-2"><div style="height: 16px; width: 16px; background-color: rgb(246, 164, 205); border-radius: 50%; margin-top: 0.5%;"></div><p>Baby Pink</p></div>
-            <div class="flex gap-2"><div style="height: 16px; width: 16px; background-color: rgb(161, 201, 243); border-radius: 50%; margin-top: 0.5%;"></div><p>Baby Blue</p></div>
-            <div class="flex gap-2"><div style="height: 16px; width: 16px; background-color: rgb(255, 255, 170); border-radius: 50%; margin-top: 0.5%;"></div><p>Pastel Yellow</p></div>
-            <div class="flex gap-2"><div style="height: 16px; width: 16px; background-color: rgb(255, 215, 142); border-radius: 50%; margin-top: 0.5%;"></div><p>Orange Cream</p></div>
-        </div>
-        </div>
-    </div>
 
-    <div>
-        <div class="mb-2"><h3><b>Display</b></h3></div>
-        <div class="border rounded border-gray-200 bg-white">
-            <div class="ml-4 mt-4 mb-4">
-        <div class="flex"><div><div><span class="material-symbols-outlined">light_mode</span></div><div><button>Day</button></div></div> <div><div><span class="material-symbols-outlined">dark_mode</span></div><div><button>Night</button></div></div></div>
-    </div>    
+
+
+
+
+
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="mb-2">
+                        <h2><b>Backgrounds</b></h2>
+                    </div>
+                    <div class="border rounded border-gray-200 bg-white">
+                        <div class="ml-4 mt-4 mb-4 flex flex-col">
+                            <button ng-click="toggleBackgroundColor('whitesmoke')">
+                                <div class="flex gap-2">
+                                    <div
+                                        style="height: 16px; width: 16px; background-color: whitesmoke; border-radius: 50%; margin-top: 0.5%;">
+                                    </div>
+                                    <p>Default</p>
+                                </div>
+                            </button>
+                            <button ng-click="toggleBackgroundColor('rgb(246, 164, 205)')">
+                                <div class="flex gap-2">
+                                    <div
+                                        style="height: 16px; width: 16px; background-color: rgb(246, 164, 205); border-radius: 50%; margin-top: 0.5%;">
+                                    </div>
+                                    <p>Baby Pink</p>
+                                </div>
+                            </button>
+                            <button ng-click="toggleBackgroundColor('rgb(161, 201, 243)')">
+                                <div class="flex gap-2">
+                                    <div
+                                        style="height: 16px; width: 16px; background-color: rgb(161, 201, 243); border-radius: 50%; margin-top: 0.5%;">
+                                    </div>
+                                    <p>Baby Blue</p>
+                                </div>
+                            </button>
+                            <button ng-click="toggleBackgroundColor('rgb(255, 255, 170)')">
+                                <div class="flex gap-2">
+                                    <div
+                                        style="height: 16px; width: 16px; background-color: rgb(255, 255, 170); border-radius: 50%; margin-top: 0.5%;">
+                                    </div>
+                                    <p>Pastel Yellow</p>
+                                </div>
+                            </button>
+                            <button ng-click="toggleBackgroundColor('rgb(255, 215, 142)')">
+                                <div class="flex gap-2">
+                                    <div
+                                        style="height: 16px; width: 16px; background-color: rgb(255, 215, 142); border-radius: 50%; margin-top: 0.5%;">
+                                    </div>
+                                    <p>Orange Cream</p>
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="mb-2">
+                        <h3><b>Display</b></h3>
+                    </div>
+                    <div class="border rounded border-gray-200 bg-white">
+                        <div class="ml-4 mt-4 mb-4">
+                            <div class="flex">
+                                <div>
+                                    <div><span class="material-symbols-outlined">light_mode</span></div>
+                                    <div><button>Day</button></div>
+                                </div>
+                                <div>
+                                    <div><span class="material-symbols-outlined">dark_mode</span></div>
+                                    <div><button>Night</button></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    </div>
-    </div>
-</div>
-</div>
 </body>
 
 </html>

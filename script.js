@@ -2,6 +2,7 @@ var app = angular.module('aiApp', ["ngRoute", "ngCookies"]);
 const googleLensUrl = 'https://serpapi.com/search';
 
 app.controller('appCtrl', function($scope, $http, $cookies){
+    $scope.displayInputField = false;
     $scope.backgroundColor = 'whitesmoke';
     $scope.accentsColor = '#cccccc';
     $scope.navBackgroundColor = 'white';
@@ -132,6 +133,15 @@ $scope.darkMode = function () {
     $scope.saveAppState();
     $scope.toggleDisplay();
 }
+
+$scope.toggleInputFieldOn = function () {
+    $scope.displayInputField = true;
+}
+
+$scope.toggleInputFieldOff = function () {
+    $scope.displayInputField = false;
+}
+
 
 
     //saving state with cookies

@@ -7,10 +7,10 @@
 
 <body>
 <div>
-    <nav style="border-top: 1px solid {{accentsColor}}; ">
-        <ul class="flex justify-around pt-4 pb-4 text-gray-500">
-           <li><a ng-href="#!home"><span class="material-symbols-outlined" style="font-size: 40px;">search</span></a></li>
-           <li><a ng-href="#!settings"><span class="material-symbols-outlined" style="font-size: 40px;">palette</span></a></li>
+    <nav style="border-top: 1px solid {{accentsColor}};">
+        <ul class="flex justify-around pt-4 pb-4">
+           <li><a ng-href="#!home" ng-click="loadAppState()"><span class="material-symbols-outlined" style="font-size: 40px; color: {{ navFontColor  }};">search</span></a></li>
+           <li><a ng-href="#!settings" ng-click="saveAppState()"><span class="material-symbols-outlined" style="font-size: 40px; color: {{ navFontColor  }};">palette</span></a></li>
         </ul>
     </nav>
 </div>

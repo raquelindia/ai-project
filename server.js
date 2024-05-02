@@ -23,7 +23,6 @@ app.get('/api/data', (req, res) => {
     message: 'Hello from the server!',
     timestamp: Date.now(),
     apiKey: process.env.OPENAI_API_KEY,
-    serpApiKey: process.env.SERP_API_KEY,
     instructions: process.env.INSTRUCTIONS
   };
   res.json(data);

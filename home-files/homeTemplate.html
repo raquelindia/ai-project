@@ -8,7 +8,7 @@
     <div class="container flex justify-center">
         <div>
         <div>
-            <div ng-if="conversationThread.length < 1"><p class="text-2xl flex justify-center">{{ aiResponse }}</p></div>
+            <div ng-if="conversationThread.length < 1" style="color: {{ navFontColor  }}"><p class="text-2xl flex justify-center">{{ aiResponse }}</p></div>
             <div id="conversation-component" ng-repeat="(index, message) in conversationThread" class="mb-22 mt-4 ml-12" >
                 <conversation-thread class="flex flex-row justify-center" message="{{ message.message }}" role="{{ message.role }}" index="{{$index}}"></conversation-thread>
             </div>
@@ -16,7 +16,7 @@
             
             <div class="mt-6">
                 <form ng-submit="sendMessage()">
-                    <div class="input-button-div"><div class="input-div"><input name="input" ng-model="Data.input" type="text" required></div> <div class="button-div"><button class="pl-4 pr-8 pb-2 pt-2 bg-gray-200 h-full" type="submit"><span class="material-symbols-outlined" style="font-size: 30px;">arrow_forward</span></button></div></div>
+                    <div class="input-button-div"><div class="input-div"><input style="border-top: 1px solid {{ accentsColor }};" name="input" ng-model="Data.input" type="text" required></div> <div class="button-div"><button style="padding-left: 6%; padding-right: 2%; padding-bottom: 2%; padding-top: 2%; background-color: {{ searchButtonBackgroundColor }}; height: 100%; border-top: 1px solid {{ accentsColor }}; border-left: 1px solid {{ accentsColor }};" type="submit"><span class="material-symbols-outlined" style="font-size: 30px; color: {{ navFontColor }}">arrow_forward</span></button></div></div>
                  </form>
             </div>
           

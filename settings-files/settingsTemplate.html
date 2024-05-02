@@ -3,12 +3,17 @@
 
 <head>
     <link rel="stylesheet" href="./settings-files/css/template-styles.css">
+    <style>
+        .highlightedBorder {
+          border: 2px solid {{ accentsColor }};
+        }
+      </style>
 </head>
 
 <body>
     <div class="flex flex-col mb-24">
         <div>
-            <div>
+            <div style="color: {{ navFontColor }};">
                 <h1 class="text-3xl flex justify-center mt-8">Settings</h1>
             </div>
         </div>
@@ -16,9 +21,9 @@
             <div class="sections w-3/4 flex flex-col gap-6">
                 <div class="flex flex-col">
                     <div class="mb-2">
-                        <h2><b>Accents</b></h2>
+                        <h2 style="color: {{ navFontColor }};"><b>Accents</b></h2>
                     </div>
-                    <div class="border rounded border-gray-200 bg-white">
+                    <div style="border: 1.5px solid {{ accentsColor }};  border-left: none; border-right: none;  background-color: white;">
                         <div class="ml-4 mt-4 mb-4 flex flex-col">
                             <button ng-click="toggleAccents('#cccccc')">
                                 <div class="flex gap-2">
@@ -105,9 +110,9 @@
 
                 <div>
                     <div class="mb-2">
-                        <h2><b>Backgrounds</b></h2>
+                        <h2 style="color: {{ navFontColor }};"><b>Backgrounds</b></h2>
                     </div>
-                    <div class="border rounded border-gray-200 bg-white">
+                    <div style="border: 1.5px solid {{ accentsColor }}; border-left: none; border-right: none; background-color: white;">
                         <div class="ml-4 mt-4 mb-4 flex flex-col">
                             <button ng-click="toggleBackgroundColor('whitesmoke')">
                                 <div class="flex gap-2">
@@ -155,18 +160,22 @@
 
                 <div>
                     <div class="mb-2">
-                        <h3><b>Display</b></h3>
+                        <h3 style="color: {{ navFontColor }};"><b>Display</b></h3>
                     </div>
-                    <div class="border rounded border-gray-200 bg-white">
-                        <div class="ml-4 mt-4 mb-4">
-                            <div class="flex">
+                    <div style="border: 1.5px solid {{ accentsColor }}; border-left: none; border-right: none; background-color: white;">
+                        <div class="ml-4 mt-6 mb-4">
+                            <div class="flex gap-4">
                                 <div>
-                                    <div><span class="material-symbols-outlined">light_mode</span></div>
-                                    <div><button>Day</button></div>
+                                    <button ng-click="lightMode()">
+                                    <div style="border: 0.2px solid {{  accentsColor }}; background-color: whitesmoke; color: black; width: 60px; height: 70px; padding-top: 10px; padding-bottom: 10px; padding-left: 5px; padding-right: 5px;  border-left: none; border-right: none;"><span class="material-symbols-outlined" style="font-size: 50px;">light_mode</span></div>
+                                    <div class="mt-2">Day</div>
+                                    </button>
                                 </div>
                                 <div>
-                                    <div><span class="material-symbols-outlined">dark_mode</span></div>
-                                    <div><button>Night</button></div>
+                                    <button ng-click="darkMode()">
+                                    <div style="border: 0.2px solid {{  accentsColor }}; background-color: black; color: white; width: 60px; height: 70px; padding-top: 10px; padding-bottom: 10px; padding-left: 5px; padding-right: 5px;  border-left: none; border-right: none;"><span class="material-symbols-outlined" style="font-size: 50px;">dark_mode</span></div>
+                                    <div class="mt-2">Night</div>
+                                    </button>
                                 </div>
                             </div>
                         </div>

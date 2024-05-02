@@ -4,7 +4,11 @@ const googleLensUrl = 'https://serpapi.com/search';
 app.controller('appCtrl', function($scope, $http, $cookies){
     $scope.backgroundColor = 'whitesmoke';
     $scope.accentsColor = '#cccccc';
-    $scope.display = '';
+    $scope.navBackgroundColor = 'white';
+    $scope.searchButtonBackgroundColor = 'rgb(228, 228, 228)';
+    $scope.navFontColor = 'black';
+    $scope.display = 'light';
+    $scope.isBorderAdded = false;
     var userMessage = "Heyyyy";
     $scope.aiResponse = "How can I assist you today?";
     $scope.inputValue = '';
@@ -12,6 +16,7 @@ app.controller('appCtrl', function($scope, $http, $cookies){
     $scope.imageSearchUrl = 'https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png';
     $scope.conversationThread = [];
     $scope.conversations = [];
+
     
 var image = $scope.imageSearchUrl;
 
@@ -19,13 +24,6 @@ var image = $scope.imageSearchUrl;
     $scope.Data = {};
     const apiKeyUrl = '/api/data';
     console.log(apiKeyUrl);
-    $scope.skins = [
-        "white",
-        "tan",
-        "brown"
-    ];
-
-    $scope.selectedSkin = 'white';
 
 
     const chatGptUrl = `https://api.openai.com/v1/chat/completions`;
@@ -34,28 +32,15 @@ var image = $scope.imageSearchUrl;
     .then(function(response) {
         console.log(apiKeyUrl);
         $scope.apiKey = response.data.apiKey;
-        $scope.serpApiKey = response.data.serpApiKey;
         $scope.instructions = response.data.instructions;
         var instructions = $scope.instructions;
         console.log(instructions);
-        var serpKey = $scope.serpApiKey;
-        console.log(serpKey);
         // Construct headers with the fetched API key
         var headers = {
             'Content-Type': 'application/json',
             'Authorization': 'Bearer ' + apiKey
         };
-        $scope.googleLensHeaders = {
-            'Authorization': 'Bearer ' + serpKey
-        };
-        var image = $scope.imageSearchUrl;
-        var googleLensConfig = {
-                engine: 'google_lens',
-                url: image,
-                api_key: serpKey
-        };
-$scope.googleLensConfig = googleLensConfig;
-     
+      
         console.log(headers);
 $scope.headers = headers;
         // Now you can use the headers to make requests to the OpenAI API
@@ -68,14 +53,13 @@ $scope.headers = headers;
     var data = {
         "model": "gpt-3.5-turbo",
         messages: [
-            {role: 'system', content: `You are a helpful assistant that speaks in a formal tone.`},
+            {role: 'system', content: $scope.instructions},
             {role: 'assistant', content: `How may I assist you today?`},
             { role: 'user', content: $scope.inputValue }
         ]
     
     };
 
-    var serpKey = $scope.serpApiKey;
     $scope.sendMessage = function() {
         var id = $scope.Data.input;
         console.log(id);
@@ -104,6 +88,7 @@ $scope.headers = headers;
     
 };
 
+
 $scope.toggleBackgroundColor = function (color) {
 $scope.backgroundColor = color;
 console.log($scope.backgroundColor);
@@ -117,38 +102,48 @@ $scope.saveAppState();
 window.location.reload();
 };
 
-$scope.toggleDisplay = function (display) {
-$scope.display = display;
-};
-
-
-//google lens api
-// Fetch data from Google Lens API
-$http.get(googleLensUrl, {
-    params: {
-        engine: 'google_lens',
-        url: $scope.imageSearchUrl,
-        api_key: serpKey
-    },
-    headers: {
-        'Content-Type': 'application/json'
+$scope.toggleDisplay = function () {
+    if ($scope.display === 'light'){
+        $scope.navBackgroundColor = 'white';
+        $scope.searchButtonBackgroundColor = 'rgb(228, 228, 228)';
+        $scope.searchButtonFontColor = 'black';
+        $scope.navFontColor = 'black';
+        $scope.backgroundColor = 'whitesmoke';
+        console.log();
+    } else {
+        $scope.navBackgroundColor = 'black';
+        $scope.searchButtonBackgroundColor = 'black';
+        $scope.navFontColor = 'white';
+        $scope.backgroundColor = '#1b1b1b';
+        
     }
-})
-    .then(function(response) {
-        $scope.googleLensData = response.data;
-        console.log($scope.googleLensData);
-    })
-    .catch(function(error) {
-        console.log(error);
-    });
+    $scope.saveAppState();
+window.location.reload();
+    };
 
+$scope.lightMode = function () {
+$scope.display = 'light';
+$scope.saveAppState();
+$scope.toggleDisplay();
+} 
+
+$scope.darkMode = function () {
+    $scope.display = 'dark';
+    $scope.saveAppState();
+    $scope.toggleDisplay();
+}
 
 
     //saving state with cookies
     $scope.saveAppState = function () {
         $cookies.putObject('appState', {
             backgroundColor: $scope.backgroundColor,
-            accentsColor: $scope.accentsColor
+            accentsColor: $scope.accentsColor,
+            display: $scope.display,
+            navBackgroundColor: $scope.navBackgroundColor,
+            navFontColor: $scope.navFontColor,
+            searchButtonBackgroundColor: $scope.searchButtonBackgroundColor,
+            conversationThread: $scope.conversationThread
         });
     };
 
@@ -157,12 +152,22 @@ $http.get(googleLensUrl, {
         if (savedState) {
             $scope.backgroundColor = savedState.backgroundColor;
             $scope.accentsColor = savedState.accentsColor;
+            $scope.display = savedState.display;
+            $scope.navBackgroundColor = savedState.navBackgroundColor;
+            $scope.navFontColor = savedState.navFontColor;
+            $scope.searchButtonBackgroundColor = savedState.searchButtonBackgroundColor;
+            $scope.conversationThread = savedState.conversationThread;
         };
     };
 
     $scope.$watchGroup([
         'backgroundColor',
-        'accentsColor'
+        'accentsColor',
+        'display',
+        'navBackgroundColor',
+        'navFontColor',
+        'searchButtonBackgroundColor',
+        'conversationThread'
     ], function(newValues, oldValues) {
         if (newValues[0] !== oldValues[0] || newValues[1] !== oldValues[1]) {
             $scope.saveAppState();

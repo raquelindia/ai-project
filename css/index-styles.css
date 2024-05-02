@@ -14,8 +14,8 @@ body {
     position: fixed; 
     bottom: 0; 
     width: 100%; 
-    background-color: #ffffff; 
     z-index: 1000; 
+    background-color: rgb(228, 228, 228);
 }
 
 
@@ -23,5 +23,11 @@ body {
     font-family: "Kanit", sans-serif;
     font-weight: 200;
     font-style: normal;
-    color: rgb(106, 106, 106);
+    /* color: rgb(106, 106, 106); */
+
+}
+
+input:focus {
+    outline: none;
+    padding-left: 4%;
 }

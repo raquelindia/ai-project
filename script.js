@@ -86,19 +86,6 @@ $scope.headers = headers;
 };
 
 
-$scope.toggleBackgroundColor = function (color) {
-$scope.backgroundColor = color;
-$scope.navFontColor = 'black';
-console.log($scope.backgroundColor);
-$scope.saveAppState();
-window.location.reload();
-};
-
-$scope.toggleAccents = function (color) {
-$scope.accentsColor = color;
-$scope.saveAppState();
-window.location.reload();
-};
 
 $scope.toggleDisplay = function () {
     if ($scope.display === 'light'){
@@ -118,6 +105,21 @@ $scope.toggleDisplay = function () {
     $scope.saveAppState();
 window.location.reload();
     };
+
+    $scope.toggleBackgroundColor = function (color) {
+        $scope.display = 'light';
+        console.log($scope.backgroundColor);
+        $scope.toggleDisplay();
+        $scope.backgroundColor = color;
+        $scope.saveAppState();
+        window.location.reload();
+        };
+        
+        $scope.toggleAccents = function (color) {
+        $scope.accentsColor = color;
+        $scope.saveAppState();
+        window.location.reload();
+        };
 
 $scope.lightMode = function () {
 $scope.display = 'light';

@@ -88,6 +88,7 @@ $scope.headers = headers;
 
 $scope.toggleBackgroundColor = function (color) {
 $scope.backgroundColor = color;
+$scope.navFontColor = 'black';
 console.log($scope.backgroundColor);
 $scope.saveAppState();
 window.location.reload();

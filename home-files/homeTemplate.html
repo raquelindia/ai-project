@@ -5,7 +5,8 @@
 </head>
 
 <body>
-    <div ng-init="toggleInputFieldOn()" class="container flex justify-center">
+    <div  class="nav-div" style="background-color: {{ navBackgroundColor }};" ng-include="'./nav-bar.html'"></div>
+    <div class="container flex justify-center">
         <div>
         <div>
             <div class="greeting" ng-if="conversationThread.length < 1" style="color: {{ navFontColor  }};"><p class="flex justify-center sm:mt-64 sm:ml-24">{{ aiResponse }}</p></div>

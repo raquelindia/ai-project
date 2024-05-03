@@ -26,3 +26,14 @@ input {
 button {
     width: 100%;
 }
+
+.greeting {
+    font-size: 250%;
+}
+
+@media screen and (max-width: 600px) {
+    .greeting {
+        font-size: 380%;
+
+    }
+  }

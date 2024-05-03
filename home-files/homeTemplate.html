@@ -5,10 +5,10 @@
 </head>
 
 <body>
-    <div class="container flex justify-center">
+    <div ng-init="toggleInputFieldOn()" class="container flex justify-center">
         <div>
         <div>
-            <div ng-if="conversationThread.length < 1" style="color: {{ navFontColor  }}"><p class="text-2xl flex justify-center">{{ aiResponse }}</p></div>
+            <div class="greeting" ng-if="conversationThread.length < 1" style="color: {{ navFontColor  }};"><p class="flex justify-center sm:mt-64 sm:ml-24">{{ aiResponse }}</p></div>
             <div id="conversation-component" ng-repeat="(index, message) in conversationThread" class="mb-22 mt-4 ml-12" >
                 <conversation-thread class="flex flex-row justify-center" message="{{ message.message }}" role="{{ message.role }}" index="{{$index}}"></conversation-thread>
             </div>

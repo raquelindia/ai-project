@@ -14,12 +14,10 @@ app.controller('appCtrl', function($scope, $http, $cookies){
     $scope.aiResponse = "How can I assist you today?";
     $scope.inputValue = '';
     $scope.userMessageVar = '';
-    $scope.imageSearchUrl = 'https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png';
     $scope.conversationThread = [];
     $scope.conversations = [];
 
     
-var image = $scope.imageSearchUrl;
 
     var headers = {};
     $scope.Data = {};
@@ -29,20 +27,18 @@ var image = $scope.imageSearchUrl;
 
     const chatGptUrl = `https://api.openai.com/v1/chat/completions`;
 
+
     $http.get(apiKeyUrl)
     .then(function(response) {
-        console.log(apiKeyUrl);
         $scope.apiKey = response.data.apiKey;
         $scope.instructions = response.data.instructions;
         var instructions = $scope.instructions;
-        console.log(instructions);
         // Construct headers with the fetched API key
         var headers = {
             'Content-Type': 'application/json',
             'Authorization': 'Bearer ' + apiKey
         };
       
-        console.log(headers);
 $scope.headers = headers;
         // Now you can use the headers to make requests to the OpenAI API
         // ...
@@ -186,7 +182,6 @@ $scope.toggleInputFieldOff = function () {
 
  //call loadAppState whenever controller initializes
 $scope.loadAppState();
-console.log($scope.backgroundColor);
 });
 
 

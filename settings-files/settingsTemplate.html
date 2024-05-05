@@ -5,13 +5,20 @@
     <link rel="stylesheet" href="./settings-files/css/template-styles.css">
     <style>
         .highlightedBorder {
-          border: 2px solid {{ accentsColor }};
+            border: 2px solid {
+                    {
+                    accentsColor
+                }
+            }
+
+            ;
         }
-      </style>
+    </style>
 </head>
 
 <body>
-    <div  class="nav-div" style="background-color: {{ navBackgroundColor }};" ng-include="'./settings-nav-bar.html'"></div>
+    <div class="nav-div" style="background-color: {{ navBackgroundColor }};" ng-include="'./settings-nav-bar.html'">
+    </div>
     <div class="flex flex-col mb-24">
         <div class="sm:mt-28 sm:mb-32">
             <div style="color: {{ navFontColor }};">
@@ -24,8 +31,10 @@
                     <div class="mb-2 sm:mb-8 sm:text-5xl lg:text-4xl md:text-4xl">
                         <h2 style="color: {{ navFontColor }};"><b>Accents</b></h2>
                     </div>
-                    <div style="border: 1.5px solid {{ accentsColor }};  border-left: none; border-right: none;  background-color: white;">
-                        <div class="ml-4 mt-4 mb-4 sm:mb-16 sm:mt-16 sm:ml-8 flex flex-col sm:text-5xl lg:text-3xl md:text-3xl">
+                    <div
+                        style="border: 1.5px solid {{ accentsColor }};  border-left: none; border-right: none;  background-color: white;">
+                        <div
+                            class="ml-4 mt-4 mb-4 sm:mb-16 sm:mt-16 sm:ml-8 flex flex-col sm:text-5xl lg:text-3xl md:text-3xl">
                             <button ng-click="toggleAccents('#cccccc')">
                                 <div class="flex gap-2">
                                     <div
@@ -113,8 +122,10 @@
                     <div class="mb-2 sm:mb-8 sm:text-5xl lg:text-4xl md:text-4xl">
                         <h2 style="color: {{ navFontColor }};"><b>Backgrounds</b></h2>
                     </div>
-                    <div style="border: 1.5px solid {{ accentsColor }}; border-left: none; border-right: none; background-color: white;">
-                        <div class="ml-4 mt-4 mb-4 sm:ml-8 sm:mt-16 sm:mb-16 flex flex-col sm:text-5xl lg:text-3xl md:text-3xl">
+                    <div
+                        style="border: 1.5px solid {{ accentsColor }}; border-left: none; border-right: none; background-color: white;">
+                        <div
+                            class="ml-4 mt-4 mb-4 sm:ml-8 sm:mt-16 sm:mb-16 flex flex-col sm:text-5xl lg:text-3xl md:text-3xl">
                             <button ng-click="toggleBackgroundColor('whitesmoke')">
                                 <div class="flex gap-2">
                                     <div
@@ -163,19 +174,26 @@
                     <div class="mb-2 sm:mb-8 sm:text-5xl lg:text-4xl md:text-4xl">
                         <h3 style="color: {{ navFontColor }};"><b>Display</b></h3>
                     </div>
-                    <div style="border: 1.5px solid {{ accentsColor }}; border-left: none; border-right: none; background-color: white;">
+                    <div
+                        style="border: 1.5px solid {{ accentsColor }}; border-left: none; border-right: none; background-color: white;">
                         <div class="ml-4 mt-6 mb-4 sm:mb-16 sm:mt-12 sm:ml-8 sm:text-5xl lg:text-3xl md:text-3xl">
                             <div class="flex gap-4">
                                 <div>
                                     <button ng-click="lightMode()">
-                                    <div style="border: 0.2px solid {{  accentsColor }}; background-color: whitesmoke; color: black; width: 60px; height: 70px; padding-top: 10px; padding-bottom: 10px; padding-left: 5px; padding-right: 5px;  border-left: none; border-right: none;"><span class="material-symbols-outlined" style="font-size: 50px;">light_mode</span></div>
-                                    <div class="mt-2">Day</div>
+                                        <div
+                                            style="border: 0.2px solid {{  accentsColor }}; background-color: whitesmoke; color: black; width: 60px; height: 70px; padding-top: 10px; padding-bottom: 10px; padding-left: 5px; padding-right: 5px;  border-left: none; border-right: none;">
+                                            <span class="material-symbols-outlined"
+                                                style="font-size: 50px;">light_mode</span></div>
+                                        <div class="mt-2">Day</div>
                                     </button>
                                 </div>
                                 <div>
                                     <button ng-click="darkMode()">
-                                    <div style="border: 0.2px solid {{  accentsColor }}; background-color: black; color: white; width: 60px; height: 70px; padding-top: 10px; padding-bottom: 10px; padding-left: 5px; padding-right: 5px;  border-left: none; border-right: none;"><span class="material-symbols-outlined" style="font-size: 50px;">dark_mode</span></div>
-                                    <div class="mt-2">Night</div>
+                                        <div
+                                            style="border: 0.2px solid {{  accentsColor }}; background-color: black; color: white; width: 60px; height: 70px; padding-top: 10px; padding-bottom: 10px; padding-left: 5px; padding-right: 5px;  border-left: none; border-right: none;">
+                                            <span class="material-symbols-outlined"
+                                                style="font-size: 50px;">dark_mode</span></div>
+                                        <div class="mt-2">Night</div>
                                     </button>
                                 </div>
                             </div>

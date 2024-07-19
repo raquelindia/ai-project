@@ -1,5 +1,4 @@
 var app = angular.module('aiApp', ["ngRoute", "ngCookies"]);
-const googleLensUrl = 'https://serpapi.com/search';
 
 app.controller('appCtrl', function ($scope, $http, $cookies) {
     $scope.displayInputField = false;
@@ -16,6 +15,9 @@ app.controller('appCtrl', function ($scope, $http, $cookies) {
     $scope.userMessageVar = '';
     $scope.conversationThread = [];
     $scope.conversations = [];
+    $scope.conversationMemory = [];
+    $scope.useMemory = "This is the conversation memory: " + $scope.conversationThread.toString() + " Use it to respond to future requests.";
+    console.log($scope.useMemory);
 
 
 
@@ -40,8 +42,7 @@ app.controller('appCtrl', function ($scope, $http, $cookies) {
             };
 
             $scope.headers = headers;
-            // Now you can use the headers to make requests to the OpenAI API
-            // ...
+
         })
         .catch(function (error) {
             console.log(error);
@@ -68,16 +69,18 @@ app.controller('appCtrl', function ($scope, $http, $cookies) {
         data.messages[data.messages.length - 1].content = id;
         $scope.Data.input = '';
 
-        console.log($scope.headers);
+
 
         $http.post(chatGptUrl, data, { headers: { 'Authorization': 'Bearer ' + $scope.apiKey, 'Content-Type': 'application/json' } })
             .then(function (response) {
                 $scope.chatGptData = response.data;
-                console.log($scope.chatGptData);
                 var arr1 = $scope.chatGptData.choices[0].message.content;
                 $scope.aiResponse = arr1;
                 $scope.conversationThread.push({ role: 'Assistant', message: $scope.aiResponse });
-                console.log($scope.conversationThread);
+
+                //find a way to turn this into a string :D 
+                //Add it to cookies and then concatenate it to the instructions 
+                console.log($scope.conversationThread.map(obj => obj.toString()));
             })
             .catch(function (error) {
                 console.log(error);
@@ -152,7 +155,8 @@ app.controller('appCtrl', function ($scope, $http, $cookies) {
             navBackgroundColor: $scope.navBackgroundColor,
             navFontColor: $scope.navFontColor,
             searchButtonBackgroundColor: $scope.searchButtonBackgroundColor,
-            conversationThread: $scope.conversationThread
+            conversationThread: $scope.conversationThread,
+            useMemory: $scope.useMemory
         });
     };
 
@@ -166,6 +170,7 @@ app.controller('appCtrl', function ($scope, $http, $cookies) {
             $scope.navFontColor = savedState.navFontColor;
             $scope.searchButtonBackgroundColor = savedState.searchButtonBackgroundColor;
             $scope.conversationThread = savedState.conversationThread;
+            $scope.useMemory = savedState.useMemory;
         };
     };
 
@@ -176,7 +181,8 @@ app.controller('appCtrl', function ($scope, $http, $cookies) {
         'navBackgroundColor',
         'navFontColor',
         'searchButtonBackgroundColor',
-        'conversationThread'
+        'conversationThread',
+        'useMemory'
     ], function (newValues, oldValues) {
         if (newValues[0] !== oldValues[0] || newValues[1] !== oldValues[1]) {
             $scope.saveAppState();

@@ -18,7 +18,6 @@ app.use(express.static(path.join(__dirname)));
 
 // Example route to handle API requests
 app.get('/api/data', (req, res) => {
-  // Example data
   const data = {
     message: 'Hello from the server!',
     timestamp: Date.now(),

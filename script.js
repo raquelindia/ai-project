@@ -6,7 +6,7 @@ app.controller('appCtrl', function ($scope, $http, $cookies) {
     $scope.accentsColor = '#cccccc';
     $scope.navBackgroundColor = 'white';
     $scope.searchButtonBackgroundColor = 'rgb(228, 228, 228)';
-    $scope.navFontColor = 'black';
+    $scope.navFontColor = '#424242';
     $scope.display = 'light';
     $scope.isBorderAdded = false;
     var userMessage = "Heyyyy";
@@ -95,7 +95,7 @@ app.controller('appCtrl', function ($scope, $http, $cookies) {
             $scope.navBackgroundColor = 'white';
             $scope.searchButtonBackgroundColor = 'rgb(228, 228, 228)';
             $scope.searchButtonFontColor = 'black';
-            $scope.navFontColor = 'black';
+            $scope.navFontColor = '#424242';
             $scope.backgroundColor = 'whitesmoke';
             console.log();
         } else {
